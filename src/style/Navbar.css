@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#nav {
+    display: grid;
+    grid-template-columns: 504px 200px 200px 200px 200px 200px;
+    grid-template-rows: 70px;  
+    /* background-color: aqua; */
+    align-items: center;
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.25);
+}
+img{
+    padding-left: 15px;
+}
+.home , .specialist, .doctor, .about{
+    font-size: 25px;
+    
+}
+.home :hover, .specialist:hover, .doctor:hover, .about:hover{
+    opacity: 0.5;
+}
+.btn-login{
+    width: 145px;
+    height: 43px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: #80CCFF 2.5px solid;
+}
+AiOutlineDown{
+    font-size: 22px;
+}
+#nav i{
+    font-size: 17px;
+}
+#nav ul{
+    padding-top: 155px;
+    z-index: 2;
+}
