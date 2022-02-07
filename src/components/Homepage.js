@@ -3,9 +3,10 @@ import Speciality from "./Speciality";
 import Doctor from "./Doctors";
 import Handbook from "./Handbook";
 
+
 function Home(){
     return(
-        <>
+        <>  
             <Banner />
             <Speciality />
             <Handbook />
