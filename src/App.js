@@ -10,6 +10,7 @@ import { Routes ,Route } from "react-router-dom";
 import {ChakraProvider} from '@chakra-ui/react'
 
 
+
 function App() {
   return (
     <ChakraProvider>
@@ -18,9 +19,12 @@ function App() {
     
     <Routes>
         <Route path="/home" element= { <Home /> } />
-        <Route path="/login" element={ <Login/> } />
-        <Route path="/signup" element={ <Signup/> } />
+        <Route path="/login" element={ <Login/> } >
        
+       
+        </Route>
+        <Route path="/signup" element={ <Signup/> } />
+      
     </Routes>
     
     <Footer />

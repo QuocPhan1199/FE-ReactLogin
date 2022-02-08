@@ -4,6 +4,7 @@ import logo from '../assets/image/logo.png'
 import { Link } from 'react-router-dom';
 import hoamai from '../assets/image/hoamai.png'
 import hoamai2 from '../assets/image/hoamai2.png'
+import '../style/Dropdown.css'
 
 import { Icon,Button,Flex,Box,Text,Image } from '@chakra-ui/react';
 
@@ -29,11 +30,23 @@ function Navbar() {
           
         </Link>
         <Link to='/home' className="home">Home</Link>
-        <div className="specialist">Specialist <i><AiOutlineDown /></i> 
-          
-        </div> 
-        <div className="doctor">Doctor <i><AiOutlineDown /></i>
+        <div className="specialist dropdown ">Specialist
+         <i><AiOutlineDown /></i> 
+        <div class="dropdown-content">
+          <a href="#">Neurology</a>
+          <a href="#">Orthopedic</a>
+          <a href="#">Dentist</a>
       
+      </div>
+
+        </div> 
+        <div className="doctor dropdown">Doctor <i><AiOutlineDown /></i>
+        <div class="dropdown-content">
+          <a href="#">Neurology</a>
+          <a href="#">Orthopedic</a>
+          <a href="#">Dentist</a>
+      
+      </div>
         </div>
         <div className="about">About <i><AiOutlineDown /></i>
         
