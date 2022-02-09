@@ -6,15 +6,20 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
   useColorModeValue,
   Image,
-  ChakraProvider
+  ChakraProvider,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+ 
+  
 } from '@chakra-ui/react';
-import { Route, Routes } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Signup from './Signup';
@@ -24,7 +29,18 @@ import Signup from './Signup';
 
 
 function btnlogin() {
+    const id = document.getElementById('email').value;
+    const pw=document.getElementById('password').value;
+    console.log(id);
+    var js= {
+      iduser: {id},
+      pwuser:{pw}
+    }
+    var text = JSON.stringify(js);
+    console.log(text);
 
+
+  
 }
 export default function SimpleCard() {
   return (<div >
@@ -41,6 +57,7 @@ export default function SimpleCard() {
           <Text fontSize={'lg'} color={'gray.600'}>
            
             to enjoy all of our cool <Link to='/signup' color={'blue.400'}>signup</Link> ✌️
+         
           </Text>
         </Stack>
 
