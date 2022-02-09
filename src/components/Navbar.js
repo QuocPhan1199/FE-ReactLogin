@@ -16,8 +16,8 @@ function Navbar() {
         <Box  d='flex' justifyContent='center'>
           <Box>
           
-          <Image src={hoamai} maxHeight='500' mr='230'  maxWidth='150' />
-          
+          {/* <Image src={hoamai} maxHeight='500' mr='230'  maxWidth='150' />
+           */}
           </Box >
          <Box width='190' height='100' d='flex' justifyContent='center' >
           <Image src={logo} mr='200' pt='10'  ></Image>
@@ -55,13 +55,13 @@ function Navbar() {
         <Box  d='flex' justifyContent='center'>
          
          <Box width='190' height='100' d='flex' mt='10'>
-         <Link to='/login'><button className="btn-login"  >LOGIN</button></Link>
-         <Link to='/signup'><button className="btn-login"  >SIGNUP</button></Link>
+         <Link to='/login'><button className="btn-login"  >LOGIN/SIGNUP</button></Link>
+          <Link to='/pro5'><button className="btn-login"  >ProFile</button></Link> 
 
          </Box>
          <Box>
           
-          <Image src={hoamai2} maxHeight='500'   maxWidth='150' mr='90'/>
+          {/* <Image src={hoamai2} maxHeight='500'   maxWidth='150' mr='90'/> */}
           
           </Box >
          

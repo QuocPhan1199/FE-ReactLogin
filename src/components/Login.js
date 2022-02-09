@@ -6,7 +6,6 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
@@ -16,9 +15,11 @@ import {
   Alert,
   AlertIcon,
   AlertTitle,
-  AlertDescription
+  AlertDescription,
+ 
+  
 } from '@chakra-ui/react';
-import { Route, Routes } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Signup from './Signup';
@@ -55,7 +56,7 @@ export default function SimpleCard() {
           <Heading fontSize={'4xl'} color='blue.400'>Welcome to Doctor Care</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
            
-            to enjoy all of our cool <Link to='/login/signup' color={'blue.400'}>signup</Link> ✌️
+            to enjoy all of our cool <Link to='/signup' color={'blue.400'}>signup</Link> ✌️
          
           </Text>
         </Stack>
