@@ -16,12 +16,55 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-  
-
+  import {handleSignUpAPI} from '../services/User'
+  import {useNavigate} from 'react-router-dom'
 
   export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
-    
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [role, setRole] = useState('customer');
+    const [password_1, setPassword_1] = useState('');
+    const [messagea, setMessage] = useState('')
+    const navigate = useNavigate()
+    const handleUserNameInput = e => {
+        setUsername(e.target.value);
+        console.log(e.target.value)
+      }
+      const handlePasswordInput = e => {
+        setPassword(e.target.value);
+        console.log(e.target.value)
+      }
+      const handlePassword_1_Input = e => {
+        setPassword_1(e.target.value);
+        console.log(e.target.value)
+      }
+
+      const handleSignUp = async () =>{
+        console.log(username)
+        console.log(password)
+        try {
+          const data = await handleSignUpAPI(username, password, password_1, role)
+          if(data)
+          {
+            localStorage.setItem('token',data.data.data.tokens[0].token)
+          }
+          var loggedInUser = localStorage.getItem('token')
+          if(loggedInUser !== null)
+          {
+            navigate('/login')
+          }
+        } catch (error) {
+          if(error){
+            if(error.response){
+              if(error.response.data)
+              {
+                setMessage(error.response.data.message)
+              }
+            }
+          }
+        }
+      }
     return (
       <Flex
         minH={'100vh'}
@@ -44,27 +87,15 @@ import {
             p={8}>
             <Stack spacing={4}>
               <HStack>
-                <Box>
-                  <FormControl id="firstName" isRequired>
-                    <FormLabel>First Name</FormLabel>
-                    <Input type="text" />
-                  </FormControl>
-                </Box>
-                <Box>
-                  <FormControl id="lastName">
-                    <FormLabel>Last Name</FormLabel>
-                    <Input type="text" />
-                  </FormControl>
-                </Box>
               </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" />
+                <Input type="email" value={username} onChange={handleUserNameInput}/>
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'} />
+                  <Input type={showPassword ? 'text' : 'password'} value={password} onChange={handlePasswordInput}/>
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -75,9 +106,14 @@ import {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
+
+                <FormLabel>Password</FormLabel>
+                <InputGroup>
+                  <Input type={showPassword ? 'text' : 'password'} value={password_1} onChange={handlePassword_1_Input}/>
+                </InputGroup>
               </FormControl>
               <Stack spacing={10} pt={2}>
-                <Button
+                <Button onClick={handleSignUp}
                   loadingText="Submitting"
                   size="lg"
                   bg={'blue.400'}
@@ -87,6 +123,11 @@ import {
                   }}>
                   Sign up
                 </Button>
+               <Text color='red'
+                
+              >
+               {messagea}
+              </Text>
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
